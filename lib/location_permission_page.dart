@@ -1,5 +1,3 @@
-// location_permission_page.dart
-// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
@@ -7,7 +5,6 @@ import 'HomePage.dart';
 class LocationPermissionPage extends StatelessWidget {
   const LocationPermissionPage({super.key});
 
-  // Shared color palette (kept consistent with LoginPage / SignUpPage / OnboardingPage)
   static const Color kBackground = Color(0xFFF9E1EC);
   static const Color kPrimary = Color(0xFFE6297A);
   static const Color kTextDark = Color(0xFF1A1A1A);
@@ -31,7 +28,6 @@ class LocationPermissionPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // Illustration placeholder - swap with your real map/people artwork asset
               Expanded(
                 flex: 5,
                 child: Container(
@@ -78,7 +74,7 @@ class LocationPermissionPage extends StatelessWidget {
 
               const Spacer(),
 
-              // Allow Access - primary solid button
+            
               SizedBox(
                 width: double.infinity,
                 height: 52,
@@ -107,7 +103,6 @@ class LocationPermissionPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // Secondary option - outlined/white button
               SizedBox(
                 width: double.infinity,
                 height: 52,

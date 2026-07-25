@@ -1,13 +1,9 @@
-// onboarding_page.dart
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
-  // Shared color palette (kept consistent with LoginPage / SignUpPage)
   static const Color kBackground = Color(0xFFF9E1EC);
   static const Color kPrimary = Color(0xFFE6297A);
   static const Color kPrimaryDark = Color(0xFF7B2FF7);

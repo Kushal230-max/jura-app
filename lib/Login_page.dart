@@ -1,5 +1,3 @@
-// login_page.dart
-// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'signup_page.dart';
@@ -17,7 +15,6 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
 
-  // Shared color palette
   static const Color kBackground = Color(0xFFF9E1EC);
   static const Color kPrimary = Color(0xFFE6297A);
   static const Color kTextDark = Color(0xFF1A1A1A);
@@ -132,7 +129,6 @@ class _LoginPageState extends State<LoginPage> {
                         );
                         return;
                       }
-                      // Frontend-only flow: no backend yet, just move to the next step.
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (_) => const LocationPermissionPage()),
                       );
