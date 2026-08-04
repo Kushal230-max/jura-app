@@ -1,38 +1,41 @@
-
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class PlaceholderTab extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
 
-  static const Color kBackground = Color(0xFFF9E1EC);
+  const PlaceholderTab({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+  });
+
   static const Color kPrimary = Color(0xFFE6297A);
   static const Color kTextDark = Color(0xFF1A1A1A);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackground,
-      appBar: AppBar(
-        backgroundColor: kPrimary,
-        title: const Text('Home'),
-      ),
-      body: Center(
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.home, size: 72, color: kPrimary),
+            Icon(icon, size: 72, color: kPrimary.withValues(alpha: 0.7)),
             const SizedBox(height: 16),
-            const Text(
-              "You're logged in!",
-              style: TextStyle(
-                fontSize: 22,
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: kTextDark,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              'This is a placeholder — build your real home screen here.',
+              subtitle,
               textAlign: TextAlign.center,
               style: TextStyle(color: kTextDark.withValues(alpha: 0.6)),
             ),

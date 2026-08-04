@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+import 'home_page.dart';
 
 class LocationPermissionPage extends StatelessWidget {
   const LocationPermissionPage({super.key});
