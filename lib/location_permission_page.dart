@@ -10,7 +10,7 @@ class LocationPermissionPage extends StatelessWidget {
 
   // Path to the illustration asset. Update this if you rename/move the file.
   static const String kIllustrationAsset =
-      'assets/images/location_permission.png';
+      'assets/images/location_permission.jpeg';
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +31,17 @@ class LocationPermissionPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // Illustration card
+              // Illustration card - expanded full width & height
               Expanded(
                 flex: 5,
                 child: Container(
                   width: double.infinity,
+                  clipBehavior: Clip.antiAlias, // Ensures image corners respect border radius
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: _buildIllustration(),
-                  ),
+                  child: _buildIllustration(),
                 ),
               ),
               const SizedBox(height: 24),
@@ -137,13 +135,13 @@ class LocationPermissionPage extends StatelessWidget {
     );
   }
 
-  /// Builds the illustration, falling back to a placeholder icon if the
-  /// asset hasn't been added to the project yet (so the app never crashes
-  /// on a missing asset during development).
+  /// Builds the illustration filling the entire container space.
   Widget _buildIllustration() {
     return Image.asset(
       kIllustrationAsset,
-      fit: BoxFit.contain,
+      width: double.infinity,
+      height: double.infinity,
+      fit: BoxFit.cover, // Fills container completely (use BoxFit.fill if you want to force fit without cropping)
       errorBuilder: (context, error, stackTrace) {
         return Center(
           child: Icon(
