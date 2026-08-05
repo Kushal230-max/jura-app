@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'package:jura_app/home_page.dart';
 
 class LocationPermissionPage extends StatelessWidget {
   const LocationPermissionPage({super.key});
@@ -8,6 +7,10 @@ class LocationPermissionPage extends StatelessWidget {
   static const Color kBackground = Color(0xFFF9E1EC);
   static const Color kPrimary = Color(0xFFE6297A);
   static const Color kTextDark = Color(0xFF1A1A1A);
+
+  // Path to the illustration asset. Update this if you rename/move the file.
+  static const String kIllustrationAsset =
+      'assets/images/location_permission.png';
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +31,18 @@ class LocationPermissionPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
+              // Illustration card
               Expanded(
                 flex: 5,
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: kPrimary.withValues(alpha: 0.12),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Center(
-                    child: Icon(
-                      Icons.map_outlined,
-                      size: 100,
-                      color: kPrimary.withValues(alpha: 0.85),
-                    ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: _buildIllustration(),
                   ),
                 ),
               ),
@@ -74,7 +75,6 @@ class LocationPermissionPage extends StatelessWidget {
 
               const Spacer(),
 
-            
               SizedBox(
                 width: double.infinity,
                 height: 52,
@@ -134,6 +134,25 @@ class LocationPermissionPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  /// Builds the illustration, falling back to a placeholder icon if the
+  /// asset hasn't been added to the project yet (so the app never crashes
+  /// on a missing asset during development).
+  Widget _buildIllustration() {
+    return Image.asset(
+      kIllustrationAsset,
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace) {
+        return Center(
+          child: Icon(
+            Icons.map_outlined,
+            size: 100,
+            color: kPrimary.withValues(alpha: 0.85),
+          ),
+        );
+      },
     );
   }
 
