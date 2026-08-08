@@ -1,7 +1,9 @@
+// lib/screens/profile_tab.dart
 import 'package:flutter/material.dart';
 import '../widgets/emergency_contacts_row.dart';
 import 'settings_page.dart';
 import 'onboarding_redirect.dart';
+import 'edit_profile_page.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
@@ -22,23 +24,31 @@ class _ProfileTabState extends State<ProfileTab> {
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         children: [
-          Row(
-            children: [
-              const CircleAvatar(
-                radius: 26,
-                backgroundColor: kPrimary,
-                child: Icon(Icons.person, color: Colors.white, size: 28),
-              ),
-              const SizedBox(width: 12),
-              const Text(
-                'user',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: kTextDark,
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const EditProfilePage()),
+            ),
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  radius: 26,
+                  backgroundColor: kPrimary,
+                  child: Icon(Icons.person, color: Colors.white, size: 28),
                 ),
-              ),
-            ],
+                const SizedBox(width: 12),
+                const Expanded(
+                  child: Text(
+                    'user',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: kTextDark,
+                    ),
+                  ),
+                ),
+                Icon(Icons.chevron_right, color: kTextDark.withValues(alpha: 0.4)),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
           Container(
@@ -79,6 +89,14 @@ class _ProfileTabState extends State<ProfileTab> {
           _card(
             child: Column(
               children: [
+                _tile(
+                  icon: Icons.edit_outlined,
+                  label: 'Edit profile',
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const EditProfilePage()),
+                  ),
+                ),
+                const Divider(height: 1),
                 _tile(
                   icon: Icons.settings_outlined,
                   label: 'App setting',

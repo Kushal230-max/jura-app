@@ -1,8 +1,10 @@
+// lib/home_page.dart
 import 'package:flutter/material.dart';
 import 'screens/sos_home_tab.dart';
+import 'screens/helplines_tab.dart';
+import 'screens/nearby_tab.dart';
+import 'screens/support_tab.dart';
 import 'screens/profile_tab.dart';
-import 'widgets/placeholder_tab.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,21 +21,9 @@ class _HomePageState extends State<HomePage> {
 
   static const List<Widget> _tabs = [
     SosHomeTab(),
-    PlaceholderTab(
-      icon: Icons.phone_in_talk_outlined,
-      title: 'Helplines',
-      subtitle: 'Quick-dial emergency helplines will show up here.',
-    ),
-    PlaceholderTab(
-      icon: Icons.map_outlined,
-      title: 'Nearby',
-      subtitle: 'Nearby help, shelters, and services will show up here.',
-    ),
-    PlaceholderTab(
-      icon: Icons.support_agent_outlined,
-      title: 'Support',
-      subtitle: 'Chat and support resources will show up here.',
-    ),
+    HelplinesTab(),
+    NearbyTab(),
+    SupportTab(),
     ProfileTab(),
   ];
 
